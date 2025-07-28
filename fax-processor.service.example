@@ -1,0 +1,14 @@
+[Unit]
+Description=FAX Processor Service
+After=network.target
+
+[Service]
+Type=simple
+User=faxuser
+WorkingDirectory=/path/to/received_fax_mail_sender
+ExecStart=/usr/bin/python3 -m src.main
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
